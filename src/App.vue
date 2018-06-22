@@ -1,6 +1,13 @@
 <template>
   <v-app>
-    <v-navigation-drawer :mini-variant="miniVariant" :clipped="clipped" v-model="drawer" enable-resize-watcher fixed app>
+    <v-navigation-drawer
+      :mini-variant="miniVariant"
+      :clipped="clipped"
+      v-model="drawer"
+      enable-resize-watcher
+      fixed
+      app
+    >
       <v-list>
         <v-list-tile>
         </v-list-tile>
@@ -26,9 +33,9 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      fixed: false,
+      fixed: true,
       miniVariant: false,
-      right: false,
+      right: true,
       rightDrawer: false,
       title: 'WorldCup Results 2018'
     }
