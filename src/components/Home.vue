@@ -42,29 +42,29 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      worldcups: null,
-      loading: true,
-      errored: false,
-      error: null
+  export default {
+    data () {
+      return {
+        worldcups: null,
+        loading: true,
+        errored: false,
+        error: null
+      }
+    },
+    mounted () {
+      fetch('https://worldcupresults.herokuapp.com/api/worldcup')
+        .then(response => response.json())
+        .then((res) => {
+          this.worldcups = res.worldcup.reverse()
+        })
+        .catch(err => {
+          this.error = err
+          console.log('Erro: ' + err)
+          this.errored = true
+        })
+        .finally(() => this.loading = false)
     }
-  },
-  mounted () {
-    fetch('https://worldcupresults.herokuapp.com/api/worldcup')
-      .then(response => response.json())
-      .then((res) => {
-        this.worldcups = res.worldcup.reverse()
-      })
-      .catch(err => {
-        this.error = err
-        console.log('Erro: ' + err)
-        this.errored = true
-      })
-      .finally(() => this.loading = false)
   }
-}
 </script>
 
 <style scoped>

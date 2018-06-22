@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-toolbar color="red accent-4" app :clipped-left="clipped">
-      <!--<v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>-->
+    <v-toolbar color="blue darken-1" app :clipped-left="clipped">
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
@@ -18,12 +18,6 @@
 export default {
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: true,
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'WorldCup Results 2018'
     }
   },
