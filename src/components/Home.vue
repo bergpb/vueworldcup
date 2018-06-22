@@ -21,7 +21,7 @@
     <v-container fluid grid-list-lg>
       <v-slide-y-transition mode="out-in">
         <v-layout row wrap>
-          <v-flex v-for="worldcup in worldcups" :key="worldcup.id" xs12 sm6 md6 lg3 xl3>
+          <v-flex v-for="worldcup in worldcups" :key="worldcup.id" xs12 sm6 md3 lg3 xl3>
             <v-card class="default" color="blue-grey lighten-4" height="100%">
               <v-card-title primary-title>
                 <div class="headline">{{worldcup.countries}}</div>
