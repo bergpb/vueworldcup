@@ -1,16 +1,30 @@
 <template>
   <v-app>
-    <v-toolbar color="blue darken-1" app :clipped-left="clipped">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+    <v-toolbar color="blue darken-1" app>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-btn to="/current" flat>
+          Current
+        </v-btn>
+        <v-btn to="/" flat>
+          Last
+        </v-btn>
+        <v-btn to="/future" flat>
+          Future
+        </v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <v-content>
       <router-view/>
     </v-content>
-    <!--<v-footer :fixed="fixed" app>
-      <span> WorldCup Results - Made with love by bergpb</span>
-    </v-footer>-->
+    <v-footer fixed="true" height="auto" >
+    <v-layout row wrap justify-center>
+      <v-flex xs12 py-1 text-xs-center>
+        <strong>WorldCup Results - Made with <v-icon color="red">favorite</v-icon> by bergpb</strong>
+      </v-flex>
+    </v-layout>
+  </v-footer>
   </v-app>
 </template>
 
@@ -18,7 +32,7 @@
 export default {
   data () {
     return {
-      title: 'WorldCup Results 2018'
+      title: 'WorldCup 2018'
     }
   },
   name: 'App'

@@ -26,9 +26,6 @@
               <v-card-title primary-title>
                 <div class="headline">{{worldcup.countries}}</div>
                 <v-card-text>
-                   <v-icon>poll</v-icon> {{worldcup.result}}<br>
-                   <v-icon>timer</v-icon> {{worldcup.status}}<br>
-                   <v-icon>stars</v-icon> {{worldcup.winner}}<br>
                    <v-icon>calendar_today</v-icon> {{worldcup.date}}<br>
                    <v-icon>location_on</v-icon> {{worldcup.localization}}<br>
                 </v-card-text>
@@ -52,10 +49,10 @@
       }
     },
     mounted () {
-      fetch('https://worldcupresults.herokuapp.com/api/worldcup')
+      fetch('https://worldcupresults.herokuapp.com/api/future')
         .then(response => response.json())
         .then((res) => {
-          this.worldcups = res.worldcup.reverse()
+          this.worldcups = res.worldcup
         })
         .catch(err => {
           this.error = err

@@ -52,10 +52,10 @@
       }
     },
     mounted () {
-      fetch('https://worldcupresults.herokuapp.com/api/worldcup')
+      fetch('https://worldcupresults.herokuapp.com/api/current')
         .then(response => response.json())
         .then((res) => {
-          this.worldcups = res.worldcup.reverse()
+          this.worldcups = res.worldcup
         })
         .catch(err => {
           this.error = err
