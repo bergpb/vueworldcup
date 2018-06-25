@@ -1,22 +1,18 @@
 <template>
-  <div v-if="loading">
-    <v-container fill-height>
-      <v-layout row wrap>
-        <v-flex class="text-xs-center">
-          <v-progress-circular :size="70" :width="7" indeterminate color="teal"></v-progress-circular>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </div>
-  <div v-else-if="errored">
-    <v-container fill-height>
-      <v-layout row wrap>
-        <v-flex class="text-xs-center">
-          <h2>Ops fail to get data! </h2>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </div>
+  <v-container v-if="loading" fill-height>
+    <v-layout row wrap>
+      <v-flex class="text-xs-center">
+        <v-progress-circular :size="70" :width="7" indeterminate color="teal"></v-progress-circular>
+      </v-flex>
+    </v-layout>
+  </v-container>
+  <v-container v-else-if="errored" fill-height>
+    <v-layout row wrap>
+      <v-flex class="text-xs-center">
+        <h2>Ops fail to get data! </h2>
+      </v-flex>
+    </v-layout>
+  </v-container>
   <v-card v-else>
     <v-container fluid grid-list-lg>
       <v-slide-y-transition mode="out-in">

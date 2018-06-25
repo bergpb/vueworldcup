@@ -2,7 +2,7 @@
   <v-app>
     <v-toolbar color="blue darken-1" app>
       <v-avatar>
-          <img src="@/assets/worldcup_logo.png">
+        <img src="@/assets/worldcup_logo.png">
       </v-avatar>
       <v-spacer></v-spacer>
       <v-toolbar-items>

@@ -18,23 +18,17 @@
     </v-container>
   </div>
   <div v-else>
-    <v-container v-if="worldcup.status === 'in progress'"  fill-height>
-      <v-layout row wrap>
-        <v-flex class="text-xs-center">
+    <v-container fill-height>
+      <v-layout v-if="worldcups[worldcups.length - 1].status === 'in progress'" row wrap>
+        <v-flex v-for="worldcup in worldcups" :key="worldcup.id" class="text-xs-center">
           <h1><strong>{{worldcup.countries}}</strong></h1>
           <div><v-icon>poll</v-icon> {{worldcup.result}}</div>
           <div><v-icon>timer</v-icon> {{worldcup.status}}</div>
-          <div><v-icon>stars</v-icon> {{worldcup.winner}}</div>
-          <div><v-icon>calendar_today</v-icon> {{worldcup.date}}</div>
         </v-flex>
       </v-layout>
-    </v-container>
-    <v-container v-else fill-height>
-      <v-layout row wrap>
+      <v-layout v-else>
         <v-flex class="text-xs-center">
-          <v-flex class="text-xs-center">
-            <h2>No matches in progress.</h2>
-          </v-flex>
+          <h2>No matches in progress.</h2>
         </v-flex>
       </v-layout>
     </v-container>
@@ -56,7 +50,7 @@
         fetch('https://worldcupresults.herokuapp.com/api/worldcup')
         .then(response => response.json())
         .then((res) => {
-          this.worldcup = res.worldcup[res.worldcup.length-1]
+          this.worldcups = res.worldcup
         })
         .catch(err => {
           this.error = err
