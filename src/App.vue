@@ -1,13 +1,15 @@
 <template>
   <v-app>
     <v-toolbar color="blue darken-1" app>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-avatar>
+          <img src="@/assets/worldcup_logo.png">
+      </v-avatar>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn to="/current" flat>
           Current
         </v-btn>
-        <v-btn to="/" flat>
+        <v-btn to="/last" flat>
           Last
         </v-btn>
         <v-btn to="/future" flat>
@@ -18,7 +20,7 @@
     <v-content>
       <router-view/>
     </v-content>
-    <v-footer fixed="true" height="auto" >
+    <v-footer fixed height="auto" >
     <v-layout row wrap justify-center>
       <v-flex xs12 py-1 text-xs-center>
         <strong>WorldCup Results - Made with <v-icon color="red">favorite</v-icon> by bergpb</strong>
@@ -32,7 +34,8 @@
 export default {
   data () {
     return {
-      title: 'WorldCup 2018'
+      title: 'WorldCup 2018',
+      fixed: true
     }
   },
   name: 'App'

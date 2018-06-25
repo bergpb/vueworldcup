@@ -3,7 +3,7 @@
     <v-container fill-height>
       <v-layout row wrap>
         <v-flex class="text-xs-center">
-          <v-progress-circular :size="70" :width="7" indeterminate color="red"></v-progress-circular>
+          <v-progress-circular :size="70" :width="7" indeterminate color="teal"></v-progress-circular>
         </v-flex>
       </v-layout>
     </v-container>
@@ -17,28 +17,28 @@
       </v-layout>
     </v-container>
   </div>
-  <v-card v-else>
-    <v-container fluid grid-list-lg>
-      <v-slide-y-transition mode="out-in">
-        <v-layout row wrap>
-          <v-flex v-for="worldcup in worldcups" :key="worldcup.id" xs12 sm6 md3 lg3 xl3>
-            <v-card class="default" color="blue-grey lighten-4" height="100%">
-              <v-card-title primary-title>
-                <div class="headline">{{worldcup.countries}}</div>
-                <v-card-text>
-                   <v-icon>poll</v-icon> {{worldcup.result}}<br>
-                   <v-icon>timer</v-icon> {{worldcup.status}}<br>
-                   <v-icon>stars</v-icon> {{worldcup.winner}}<br>
-                   <v-icon>calendar_today</v-icon> {{worldcup.date}}<br>
-                   <v-icon>location_on</v-icon> {{worldcup.localization}}<br>
-                </v-card-text>
-              </v-card-title>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-slide-y-transition>
+  <div v-else>
+    <v-container v-if="worldcup.status === 'in progress'"  fill-height>
+      <v-layout row wrap>
+        <v-flex class="text-xs-center">
+          <h1><strong>{{worldcup.countries}}</strong></h1>
+          <div><v-icon>poll</v-icon> {{worldcup.result}}</div>
+          <div><v-icon>timer</v-icon> {{worldcup.status}}</div>
+          <div><v-icon>stars</v-icon> {{worldcup.winner}}</div>
+          <div><v-icon>calendar_today</v-icon> {{worldcup.date}}</div>
+        </v-flex>
+      </v-layout>
     </v-container>
-  </v-card>
+    <v-container v-else fill-height>
+      <v-layout row wrap>
+        <v-flex class="text-xs-center">
+          <v-flex class="text-xs-center">
+            <h2>No matches in progress.</h2>
+          </v-flex>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -51,11 +51,12 @@
         error: null
       }
     },
-    mounted () {
-      fetch('https://worldcupresults.herokuapp.com/api/current')
+    methods: {
+      updateData: function() {
+        fetch('https://worldcupresults.herokuapp.com/api/worldcup')
         .then(response => response.json())
         .then((res) => {
-          this.worldcups = res.worldcup
+          this.worldcup = res.worldcup[res.worldcup.length-1]
         })
         .catch(err => {
           this.error = err
@@ -63,8 +64,12 @@
           this.errored = true
         })
         .finally(() => this.loading = false)
-    }
+      }
+    },
+    mounted () {
+      this.updateData();
   }
+}
 </script>
 
 <style scoped>

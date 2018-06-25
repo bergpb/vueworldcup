@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import Last from '@/components/Last'
 import Future from '@/components/Future'
 import Current from '@/components/Current'
 
@@ -12,6 +13,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/last',
+      name: 'Last',
+      component: Last
     },
     {
       path: '/future',
