@@ -20,6 +20,7 @@
     <v-content>
       <router-view/>
     </v-content>
+    <div style="padding-top: 8%"></div>
     <v-footer fixed height="auto" >
     <v-layout row wrap justify-center>
       <v-flex xs12 py-1 text-xs-center>
