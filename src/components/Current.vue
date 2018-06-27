@@ -19,11 +19,12 @@
   </div>
   <div v-else>
     <v-container fill-height>
-      <v-layout v-if="worldcups[worldcups.length - 1].status === 'in progress'" row wrap>
-        <v-flex v-for="worldcup in worldcups" :key="worldcup.id" class="text-xs-center">
+      <v-layout v-if="worldcups[0].status === 'in progress'" row wrap>
+        <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'in progress'" class="text-xs-center">
           <h1><strong>{{worldcup.countries}}</strong></h1>
           <div><v-icon>poll</v-icon> {{worldcup.result}}</div>
           <div><v-icon>timer</v-icon> {{worldcup.status}}</div>
+          <div style="padding-top: 10%"></div>
         </v-flex>
       </v-layout>
       <v-layout v-else>
@@ -50,7 +51,7 @@
         fetch('https://worldcupresults.herokuapp.com/api/worldcup')
         .then(response => response.json())
         .then((res) => {
-          this.worldcups = res.worldcup
+          this.worldcups = res.worldcup.reverse()
         })
         .catch(err => {
           this.error = err
