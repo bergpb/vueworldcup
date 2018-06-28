@@ -19,8 +19,8 @@
   </div>
   <div v-else>
     <v-container fill-height>
-      <v-layout v-if="worldcups[0].status === 'in progress'" row wrap>
-        <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'in progress'" class="text-xs-center">
+      <v-layout v-if="worldcups[0].status === 'Em Andamento'" row wrap>
+        <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Em Andamento'" class="text-xs-center">
           <h1><strong>{{worldcup.countries}}</strong></h1>
           <div><v-icon>poll</v-icon> {{worldcup.result}}</div>
           <div><v-icon>timer</v-icon> {{worldcup.status}}</div>
@@ -29,7 +29,7 @@
       </v-layout>
       <v-layout v-else>
         <v-flex class="text-xs-center">
-          <h2>No matches in progress.</h2>
+          <h2>Ops, não há nenhuma partida em andamento.</h2>
         </v-flex>
       </v-layout>
     </v-container>
@@ -59,11 +59,15 @@
           this.errored = true
         })
         .finally(() => this.loading = false)
-      }
+      },
     },
     mounted () {
-      this.updateData();
-  }
+      // this.timer = setInterval(this.updateData, 1000)
+      this.updateData;
+    },
+    beforeDestroy () {
+      clearInterval("Saindo da tela.")
+    }
 }
 </script>
 
