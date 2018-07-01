@@ -8,9 +8,9 @@ var urlsToCache = [
   './index.html',
   './manifest.json',
   './serviceworker-cache-polyfill.js',
-  './css/*',
-  './img/*',
-  './js/*',
+  './static/css/*',
+  './static/img/*',
+  './static/js/*',
   // './build.js',
 ];
 
