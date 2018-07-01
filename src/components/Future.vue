@@ -21,10 +21,19 @@
     <v-container fluid grid-list-lg>
       <v-slide-y-transition mode="out-in">
         <v-layout row wrap>
-          <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.countries != '- x -'" xs12 sm6 md3 lg3 xl3>
+          <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.countries[0] != '-'" xs12 sm6 md3 lg3 xl3>
             <v-card class="default" color="blue-grey lighten-4" height="100%">
               <v-card-title primary-title>
-                <div class="headline">{{worldcup.countries}}</div>
+                <v-flex v-for="countries in worldcup.countries" xs6 sm6 md6 lg6 xl6>
+                  <div class="text-xs-center">
+                    <h1>{{countries}}</h1>
+                  </div>
+                </v-flex>
+                <v-flex v-for="flag in worldcup.flags" xs6 sm6 md6 lg6 xl6>
+                  <div class="text-xs-center">
+                    <img :src=flag />
+                  </div>
+                </v-flex>
                 <v-card-text>
                    <v-icon>calendar_today</v-icon> {{worldcup.date | datalize}}<br>
                    <v-icon>location_on</v-icon> {{worldcup.localization}}<br>

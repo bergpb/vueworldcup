@@ -20,9 +20,22 @@
           <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Finalizado'" xs12 sm6 md3 lg3 xl3>
             <v-card class="default" color="blue-grey lighten-4" height="100%">
               <v-card-title primary-title>
-                <div class="headline">{{worldcup.countries}}</div>
+                <v-flex v-for="countries in worldcup.countries" xs6 sm6 md6 lg6 xl6>
+                  <div class="text-xs-center">
+                    <h1>{{countries}}</h1>
+                  </div>
+                </v-flex>
+                <v-flex v-for="flag in worldcup.flags" xs6 sm6 md6 lg6 xl6>
+                  <div class="text-xs-center">
+                    <img :src=flag />
+                  </div>
+                </v-flex>
+                <v-flex v-for="result in worldcup.results" xs6 sm6 md6 lg6 xl6>
+                  <div class="text-xs-center">
+                    <h1>{{result}}</h1>
+                  </div>
+                </v-flex>
                 <v-card-text>
-                   <v-icon>poll</v-icon> {{worldcup.result}}<br>
                    <v-icon>timer</v-icon> {{worldcup.status}}<br>
                    <v-icon>stars</v-icon> {{worldcup.winner}}<br>
                    <v-icon>calendar_today</v-icon> {{worldcup.date | datalize}}<br>

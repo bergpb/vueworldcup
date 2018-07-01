@@ -12,22 +12,29 @@
     <v-container fill-height>
       <v-layout row wrap>
         <v-flex class="text-xs-center">
-          <h2>Ops fail to get data!</h2>
+          <h2>Ops! Falha ao recolher informações!</h2>
         </v-flex>
       </v-layout>
     </v-container>
   </div>
   <div v-else>
-    <v-container fill-height>
-      <v-layout v-if="worldcups[0].status === 'Em Andamento'" row wrap>
-        <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Em Andamento'" class="text-xs-center">
-          <h1><strong>{{worldcup.countries}}</strong></h1>
-          <div><v-icon>poll</v-icon> {{worldcup.result}}</div>
-          <div><v-icon>timer</v-icon> {{worldcup.status}}</div>
-          <div style="padding-top: 10%"></div>
+    <v-container v-if="worldcups[0].status === 'Em Andamento'" grid-list-md text-xs-center>
+      <v-layout v-for="(worldcup, index) in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Em Andamento'"  row wrap>
+        <v-flex v-for="countries in worldcup.countries" xs6>
+          <h1>{{countries}}</h1>
         </v-flex>
+        <v-flex v-for="flag in worldcup.flags" xs6>
+          <img :src=flag />
+        </v-flex>
+        <v-flex v-for="result in worldcup.results" xs6>
+          <h1>{{result}}</h1>
+        </v-flex>
+        </v-card>
+        <hr>
       </v-layout>
-      <v-layout v-else>
+    </v-container>
+    <v-container v-else>
+      <v-layout>
         <v-flex class="text-xs-center">
           <h2>Ops, não há nenhuma partida em andamento.</h2>
         </v-flex>
@@ -40,13 +47,13 @@
   export default {
     data () {
       return {
-        worldcups: null,
+        worldcups: [],
         loading: true,
         errored: false,
         error: null
       }
     },
-    methods: {
+    methods:{
       updateData: function() {
         fetch('https://worldcupresults.herokuapp.com/api/worldcup')
         .then(response => response.json())
@@ -59,15 +66,18 @@
           this.errored = true
         })
         .finally(() => this.loading = false)
-      },
+      }
+    },
+    filters: {
+      datalize: function (date) {
+        if (!date) return ''
+        date = new Date(date)
+        return date.toLocaleTimeString() + ' - ' + date.toLocaleDateString()
+      }
     },
     mounted () {
-      // this.timer = setInterval(this.updateData, 1000)
-      this.updateData;
+      this.updateData();
     },
-    beforeDestroy () {
-      clearInterval("Saindo da tela.")
-    }
 }
 </script>
 
@@ -85,5 +95,20 @@ li {
 }
 a {
   color: #42b983;
+}
+hr {
+   display: block;
+   position: relative;
+   padding: 0;
+   margin: 10px auto;
+   height: 0;
+   width: 100%;
+   max-height: 0;
+   font-size: 2px;
+   line-height: 0;
+   clear: both;
+   border: none;
+   border-top: 1px solid #aaaaaa;
+   border-bottom: 1px solid #ffffff;
 }
 </style>

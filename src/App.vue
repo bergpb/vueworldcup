@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar color="blue darken-1" app>
+    <v-toolbar color="indigo darken-2" app>
       <v-avatar>
         <img src="@/assets/worldcup_logo.png">
       </v-avatar>
@@ -24,7 +24,7 @@
     <v-footer fixed height="auto" >
     <v-layout row wrap justify-center>
       <v-flex xs12 py-1 text-xs-center>
-        <strong>Resultado da Copa 2018 - Feito com <v-icon color="red">favorite</v-icon> por @bergpb</strong>
+        <strong>Resultados da Copa 2018 - Feito com <v-icon color="red">favorite</v-icon> por @bergpb</strong>
       </v-flex>
     </v-layout>
   </v-footer>
