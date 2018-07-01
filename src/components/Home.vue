@@ -3,8 +3,8 @@
     <v-container fill-height>
       <v-layout column align-center justify-center>
         <v-flex class="text-xs-center">
-          <h1>Follow worldcup results in your mobile.</h1>
-            <h4>App made with VueJs and Python.</h4>
+          <h1>Acompanhe os resultados da copa de uma forma simples e prática.</h1>
+            <h4>Criado com Vue.js e Flask</h4>
         </v-flex>
       </v-layout>
     </v-container>
