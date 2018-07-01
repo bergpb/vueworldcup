@@ -29,7 +29,9 @@
         <v-flex v-for="result in worldcup.results" xs6>
           <h1>{{result}}</h1>
         </v-flex>
-        </v-card>
+        <v-flex>
+          <h2>Tempo decorrido: {{worldcup.time}}</h2>
+        </v-flex>
         <hr>
       </v-layout>
     </v-container>
@@ -66,6 +68,7 @@
           this.errored = true
         })
         .finally(() => this.loading = false)
+        console.log('updated...')
       }
     },
     filters: {
@@ -77,7 +80,7 @@
     },
     mounted () {
       this.updateData();
-    },
+    }
 }
 </script>
 

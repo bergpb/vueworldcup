@@ -1,27 +1,34 @@
 <template>
   <v-app>
     <v-layout wrap>
-      <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-toolbar color="indigo darken-2" app>
+        <v-toolbar-side-icon dark @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <v-toolbar-title class="white--text">Resultados da Copa</v-toolbar-title>
+        <v-spacer></v-spacer>
+      </v-toolbar>
+      <v-navigation-drawer
+        disable-resize-watcher
+        v-model="drawer"
+        temporary
+        fixed
+        app
+        >
         <v-list class="pa-1">
           <v-list-tile avatar>
             <v-list-tile-avatar>
               <img src="@/assets/worldcup_logo.png" >
             </v-list-tile-avatar>
-  
             <v-list-tile-content>
               <v-list-tile-title>Copa do Mundo 2018</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
-  
         <v-list class="pt-0" dense>
           <v-divider></v-divider>
-  
           <v-list-tile v-for="item in items" :key="item.title" :to="item.path">
             <v-list-tile-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
-  
             <v-list-tile-content>
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
@@ -29,22 +36,19 @@
         </v-list>
       </v-navigation-drawer>
     </v-layout>
-    <v-toolbar color="indigo darken-2" app>
-      <v-toolbar-side-icon dark @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title class="white--text">Resultados da Copa</v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-toolbar>
-    <v-content>
-      <router-view/>
-    </v-content>
-    <div style="padding-top: 8%"></div>
-    <v-footer fixed height="auto" >
-    <v-layout row wrap justify-center>
-      <v-flex xs12 py-1 text-xs-center>
-        <strong>Resultados da Copa 2018 - Feito com <v-icon color="red">favorite</v-icon> por @bergpb</strong>
-      </v-flex>
+    <v-layout>
+      <v-content>
+        <router-view/>
+      </v-content>
     </v-layout>
-  </v-footer>
+    <v-layout row wrap justify-center>
+      <div style="padding-top: 35px"></div>
+      <v-footer fixed height="auto" >
+        <v-flex xs12 py-1 text-xs-center>
+          <strong>Resultados da Copa 2018 - Feito com <v-icon color="red">favorite</v-icon> por @bergpb</strong>
+        </v-flex>
+      </v-footer>
+    </v-layout>
   </v-app>
 </template>
 
