@@ -9,7 +9,7 @@
   <v-container v-else-if="errored" fill-height>
     <v-layout row wrap>
       <v-flex class="text-xs-center">
-        <h2>Ops fail to get data! </h2>
+        <h2>Ops! Falha ao recolher informações!</h2>
       </v-flex>
     </v-layout>
   </v-container>

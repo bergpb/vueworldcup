@@ -68,7 +68,6 @@
           this.errored = true
         })
         .finally(() => this.loading = false)
-        console.log('updated...')
       }
     },
     filters: {
