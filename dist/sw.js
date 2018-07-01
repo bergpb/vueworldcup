@@ -1,5 +1,3 @@
-
-
 importScripts('serviceworker-cache-polyfill.js');
 
 var CACHE_NAME = 'simple-pwa-v2';
@@ -10,20 +8,9 @@ var urlsToCache = [
   './index.html',
   './manifest.json',
   './serviceworker-cache-polyfill.js',
-  './src/assets/img/blank-thumbnail.png',
-  './src/assets/img/favicon.png',
-  './src/assets/img/icon-48.png',
-  './src/assets/img/icon-96.png',
-  './src/assets/img/icon-128.png',
-  './src/assets/img/icon-144.png',
-  './src/assets/img/icon-152.png',
-  './src/assets/img/icon-196.png',
-  './src/assets/img/icon-384.png',
-  './src/vendor/bootstrap/css/bootstrap.min.css',
-  './src/vendor/ionicons/css/ionicons.min.css',
-  './src/vendor/ionicons/fonts/ionicons.ttf',
-  './src/vendor/ionicons/fonts/ionicons.woff',
-  './build/build.js',
+  './css/*',
+  './img/*',
+  './js/*',
   // './build.js',
 ];
 
