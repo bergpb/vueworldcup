@@ -22,7 +22,7 @@
       <v-slide-y-transition mode="out-in">
         <v-layout row wrap>
           <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.countries[0] != '-'" xs12 sm6 md3 lg3 xl3>
-            <v-card class="default" color="blue-grey lighten-4" height="100%">
+            <v-card class="default" color="white" height="100%">
               <v-card-title primary-title>
                 <v-flex v-for="countries in worldcup.countries" xs6 sm6 md6 lg6 xl6>
                   <div class="text-xs-center">

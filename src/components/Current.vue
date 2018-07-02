@@ -56,7 +56,7 @@
       }
     },
     methods:{
-      updateData: function() {
+      firstUpdate: function() {
         fetch('https://worldcupresults.herokuapp.com/api/worldcup')
         .then(response => response.json())
         .then((res) => {
@@ -68,6 +68,16 @@
           this.errored = true
         })
         .finally(() => this.loading = false)
+      },
+      updateData: function() {
+        setInterval(function (){
+          fetch('https://worldcupresults.herokuapp.com/api/worldcup')
+          .then(response => response.json())
+          .then((res) => {
+            this.worldcups = res.worldcup.reverse()
+            console.log(this.worldcups)
+          })
+        }, 31 * 1000)
       }
     },
     filters: {
@@ -78,7 +88,8 @@
       }
     },
     mounted () {
-      this.updateData();
+      this.firstUpdate();
+      //this.updateData();
     }
 }
 </script>
