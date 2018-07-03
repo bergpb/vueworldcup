@@ -1,36 +1,46 @@
 {
-  "name": "Vue Simple PWA",
-  "short_name": "VSPWA",
+  "name": "Vue Worldcup",
+  "short_name": "VWC",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#303f9f",
+  "background_color": "#303f9f",
   "icons": [
     {
-      "src": "./src/assets/img/icon-48.png",
-      "sizes": "48x48",
+      "src": "/static/img/icons/icon-72x72.png",
+      "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "./src/assets/img/icon-96.png",
+      "src": "/static/img/icons/icon-96x96.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "./src/assets/img/icon-144.png",
+      "src": "/static/img/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/img/icons/icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "./src/assets/img/icon-196.png",
-      "sizes": "196x196",
+      "src": "/static/img/icons/icon-152x152.png",
+      "sizes": "152x152",
       "type": "image/png"
     },
     {
-      "src": "./src/assets/img/icon-384.png",
+      "src": "/static/img/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/img/icons/icon-384x384.png",
       "sizes": "384x384",
       "type": "image/png"
     }
-  ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#f9f9f9",
-  "theme_color": "#3d5165"
+  ]
 }
