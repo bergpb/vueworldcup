@@ -19,7 +19,7 @@
   </div>
   <div v-else>
     <v-container v-if="worldcups[0].status === 'Em Andamento'" grid-list-md text-xs-center>
-      <v-layout v-for="(worldcup, index) in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Em Andamento'"  row wrap>
+      <v-layout v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Em Andamento'" row wrap>
         <v-flex v-for="countries in worldcup.countries" xs6>
           <h1>{{countries}}</h1>
         </v-flex>
@@ -31,6 +31,7 @@
         </v-flex>
         <v-flex>
           <h2>Tempo decorrido: {{worldcup.time}}</h2>
+          <p>Última atualização: {{worldcup.date_time}}</p>
         </v-flex>
         <hr>
       </v-layout>
@@ -39,6 +40,8 @@
       <v-layout>
         <v-flex class="text-xs-center">
           <h2>Ops, não há nenhuma partida em andamento.</h2>
+        </br>
+          <p>Última atualização: {{worldcups[0].date_time}}</p>
         </v-flex>
       </v-layout>
     </v-container>
@@ -47,6 +50,7 @@
 
 <script>
   export default {
+    name: 'app',
     data () {
       return {
         worldcups: [],
@@ -55,9 +59,10 @@
         error: null
       }
     },
-    methods:{
+    methods: {
       firstUpdate: function() {
         fetch('https://worldcupresults.herokuapp.com/api/worldcup')
+        // fetch('http://localhost:5000/api/worldcup')
         .then(response => response.json())
         .then((res) => {
           this.worldcups = res.worldcup.reverse()
@@ -69,15 +74,19 @@
         })
         .finally(() => this.loading = false)
       },
-      updateData: function() {
-        setInterval(function (){
-          fetch('https://worldcupresults.herokuapp.com/api/worldcup')
-          .then(response => response.json())
-          .then((res) => {
-            this.worldcups = res.worldcup.reverse()
-            console.log(this.worldcups)
-          })
-        }, 31 * 1000)
+      continuousUpdate: function() {
+        console.log('updating...')
+        fetch('https://worldcupresults.herokuapp.com/api/worldcup')
+        // fetch('http://localhost:5000/api/worldcup')
+        .then(response => response.json())
+        .then((res) => {
+          this.worldcups = res.worldcup.reverse()
+        })
+        .catch(err => {
+          this.error = err
+          console.log('Erro: ' + err)
+          this.errored = true
+        })
       }
     },
     filters: {
@@ -88,10 +97,15 @@
       }
     },
     mounted () {
-      this.firstUpdate();
-      //this.updateData();
-    }
-}
+      this.firstUpdate()
+      this.interval = setInterval(
+        this.continuousUpdate, 15 * 1000
+      );
+    },
+    destroyed () {
+      clearInterval(this.interval)
+    },
+  }
 </script>
 
 <style scoped>

@@ -4,10 +4,6 @@ var CACHE_NAME = 'simple-pwa-v2';
 
 // File want to cache
 var urlsToCache = [
-  './',
-  './index.html',
-  './manifest.json',
-  './serviceworker-cache-polyfill.js',
   // './build.js',
 ];
 
