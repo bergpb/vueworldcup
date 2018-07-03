@@ -2,7 +2,7 @@
   "name": "Vue Worldcup",
   "short_name": "VWC",
   "start_url": "./index.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#303f9f",
   "background_color": "#303f9f",

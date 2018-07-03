@@ -15,9 +15,6 @@
         >
         <v-list class="pa-1">
           <v-list-tile avatar>
-            <v-list-tile-avatar>
-              <img src="@/assets/worldcup_logo.png" >
-            </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>Copa do Mundo 2018</v-list-tile-title>
             </v-list-tile-content>

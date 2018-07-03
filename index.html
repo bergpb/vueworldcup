@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="theme-color" content="#303F9F">
     <title>VueWorldcup</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     <!-- MANIFEST -->
-  <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
+  
   </head>
   <body>
     <div id="app"></div>
@@ -15,10 +17,10 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').then(function (registration) {
         // Registration Success
-        console.log('[serviceWorker]: registration successful with scope: ', registration.scope);
+        console.log('SW registred...');
       }).catch(function (err) {
         // Registration failed :(
-        console.log('[serviceWorker] registration failed', err);
+        console.log('Fail to register sw: ', err);
       });
     }
   </script>

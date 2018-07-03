@@ -1,10 +1,10 @@
 importScripts('serviceworker-cache-polyfill.js');
 
-var CACHE_NAME = 'simple-pwa-v2';
+var CACHE_NAME = 'vueworldcup';
 
 // File want to cache
 var urlsToCache = [
-  // './build.js',
+  // '',
 ];
 
 
@@ -28,7 +28,7 @@ self.oninstall = function (e) {
 
 self.onfetch = function (e) {
 
-  console.log('[serviceWorker]: Fetching ' + e.request.url);
+  //console.log('[serviceWorker]: Fetching ' + e.request.url);
   var raceUrl = 'API/';
   if(e.request.url.indexOf(raceUrl) > -1){
     e.respondWith(
@@ -83,7 +83,7 @@ self.onactivate = function (e) {
 
   console.log('[serviceWorker]: Actived');
 
-  var whiteList = ['simple-pwa-v2'];
+  var whiteList = ['vueworldcup'];
 
   e.waitUntil(
     caches.keys().then(function (cacheNames) {
