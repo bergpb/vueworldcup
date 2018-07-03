@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name='description' content='Acompanhe os resultados da copa de uma forma simples e prática.'>
     <meta name="theme-color" content="#303F9F">
     <title>VueWorldcup</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
@@ -15,9 +16,10 @@
     <!-- built files will be auto injected -->
     <script>
     if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.ready.then(function(registration) {
+      });
       navigator.serviceWorker.register('sw.js').then(function (registration) {
         // Registration Success
-        console.log('SW registred...');
       }).catch(function (err) {
         // Registration failed :(
         console.log('Fail to register sw: ', err);

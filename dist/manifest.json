@@ -1,7 +1,7 @@
 {
-  "name": "Vue Worldcup",
+  "name": "VueWorldcup",
   "short_name": "VWC",
-  "start_url": "./index.html",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#303f9f",
