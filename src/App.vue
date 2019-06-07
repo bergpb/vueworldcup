@@ -39,10 +39,9 @@
       </v-content>
     </v-layout>
     <v-layout row wrap justify-center>
-      <div style="padding-top: 35px"></div>
-      <v-footer fixed height="auto" >
+      <v-footer fixed >
         <v-flex xs12 py-1 text-xs-center>
-          <strong>Resultados da Copa 2019 - Feito com <v-icon color="red">favorite</v-icon> por @bergpb</strong>
+          <small>Feito com <v-icon color="red">favorite</v-icon> por @bergpb</small>
         </v-flex>
       </v-footer>
     </v-layout>

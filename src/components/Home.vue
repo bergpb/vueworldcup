@@ -3,7 +3,7 @@
     <v-container fill-height>
       <v-layout column align-center justify-center>
         <v-flex class="text-xs-center">
-          <img src="@/assets/fifa2019.png" width='25%' />
+          <img src="@/assets/fifa2019.png" width='250px' />
           <p class="mt-4">
               <strong>Acompanhe os resultados da copa de uma forma simples e prática. Criado com Vue.js e Flask.</strong>
           </p>
