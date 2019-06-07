@@ -13,11 +13,11 @@
       </v-flex>
     </v-layout>
   </v-container>
-  <v-card v-else>
+  <v-card v-else-if="worldcups.length > 0">
     <v-container fluid grid-list-lg>
       <v-slide-y-transition mode="out-in">
         <v-layout row wrap>
-          <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Finalizado'" xs12 sm6 md3 lg3 xl3>
+          <v-flex v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Finalizado'" xs12 sm6 md4 lg4 xl3>
             <v-card class="default" color="white" height="100%">
               <v-card-title primary-title>
                 <v-flex v-for="countries in worldcup.countries" xs6 sm6 md6 lg6 xl6>
@@ -48,6 +48,13 @@
       </v-slide-y-transition>
     </v-container>
   </v-card>
+  <v-container v-else fill-height>
+    <v-layout row wrap>
+      <v-flex class="text-xs-center">
+        <h2>Ops, não há partidas registradas.</h2>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>

@@ -3,9 +3,10 @@
     <v-container fill-height>
       <v-layout column align-center justify-center>
         <v-flex class="text-xs-center">
-          <img src="@/assets/fifa2018.png" width='80%' />
-          </br>
-          <p>Acompanhe os resultados da copa de uma forma simples e prática. Criado com Vue.js e Flask.</p>
+          <img src="@/assets/fifa2019.png" width='25%' />
+          <p class="mt-4">
+              <strong>Acompanhe os resultados da copa de uma forma simples e prática. Criado com Vue.js e Flask.</strong>
+          </p>
         </v-flex>
       </v-layout>
     </v-container>
@@ -26,5 +27,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.mt-4{
+  margin-top: 40px;
 }
 </style>

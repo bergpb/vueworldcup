@@ -16,7 +16,7 @@
         <v-list class="pa-1">
           <v-list-tile avatar>
             <v-list-tile-content>
-              <v-list-tile-title>Copa do Mundo 2018</v-list-tile-title>
+              <v-list-tile-title>Copa do Mundo 2019</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -42,7 +42,7 @@
       <div style="padding-top: 35px"></div>
       <v-footer fixed height="auto" >
         <v-flex xs12 py-1 text-xs-center>
-          <strong>Resultados da Copa 2018 - Feito com <v-icon color="red">favorite</v-icon> por @bergpb</strong>
+          <strong>Resultados da Copa 2019 - Feito com <v-icon color="red">favorite</v-icon> por @bergpb</strong>
         </v-flex>
       </v-footer>
     </v-layout>
@@ -53,7 +53,7 @@
 export default {
   data () {
     return {
-      title: 'WorldCup 2018',
+      title: 'WorldCup 2019',
       fixed: true,
       drawer: null,
         items: [

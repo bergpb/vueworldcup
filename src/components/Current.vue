@@ -18,33 +18,35 @@
     </v-container>
   </div>
   <div v-else>
-    <v-container v-if="worldcups[0].status === 'Em Andamento'" grid-list-md text-xs-center>
-      <v-layout v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Em Andamento'" row wrap>
-        <v-flex v-for="countries in worldcup.countries" xs6>
-          <h1>{{countries}}</h1>
-        </v-flex>
-        <v-flex v-for="flag in worldcup.flags" xs6>
-          <img :src=flag />
-        </v-flex>
-        <v-flex v-for="result in worldcup.results" xs6>
-          <h1>{{result}}</h1>
-        </v-flex>
-        <v-flex>
-          <h2>Tempo decorrido: {{worldcup.time}}</h2>
-          <p>Última atualização: {{worldcup.date_time}}</p>
-        </v-flex>
-        <hr>
-      </v-layout>
-    </v-container>
-    <v-container v-else>
-      <v-layout>
-        <v-flex class="text-xs-center">
-          <h2>Ops, não há nenhuma partida em andamento.</h2>
-        </br>
-          <p>Última atualização: {{worldcups[0].date_time}}</p>
-        </v-flex>
-      </v-layout>
-    </v-container>
+    <div v-if="worldcups.length > 0">
+        <v-container v-if="worldcups[0].status === 'Em Andamento'" grid-list-md text-xs-center>
+          <v-layout v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Em Andamento'" row wrap>
+            <v-flex v-for="countries in worldcup.countries" xs6>
+              <h1>{{countries}}</h1>
+            </v-flex>
+            <v-flex v-for="flag in worldcup.flags" xs6>
+              <img :src=flag />
+            </v-flex>
+            <v-flex v-for="result in worldcup.results" xs6>
+              <h1>{{result}}</h1>
+            </v-flex>
+            <v-flex>
+              <h2>Tempo decorrido: {{worldcup.time}}</h2>
+              <p>Última atualização: {{worldcup.date_time}}</p>
+            </v-flex>
+            <hr>
+          </v-layout>
+        </v-container>
+    </div>
+    <div v-else>
+        <v-container>
+          <v-layout>
+            <v-flex class="text-xs-center">
+              <h2>Ops, não há nenhuma partida em andamento.</h2>
+            </v-flex>
+          </v-layout>
+        </v-container>
+    </div>
   </div>
 </template>
 
