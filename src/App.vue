@@ -48,7 +48,7 @@ export default {
       title: 'WorldCup 2019',
       fixed: true,
       drawer: null,
-        items: [  
+        items: [
           { title: 'Início', icon: 'home', path: '/' },
           { title: 'Em Andamento', icon: 'timer', path: '/current' },
           { title: 'Últimos Jogos', icon: 'keyboard_arrow_left', path: '/last' },
