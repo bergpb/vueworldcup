@@ -13,7 +13,7 @@
       </v-flex>
     </v-layout>
   </v-container>
-  <v-card v-else-if="worldcups.length > 0">
+  <v-card v-else-if="worldcups.length > 0 && worldcups[0].status === 'Finalizado'">
     <v-container fluid grid-list-lg>
       <v-slide-y-transition mode="out-in">
         <v-layout row wrap>
@@ -94,20 +94,3 @@
     },
 }
 </script>
-
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

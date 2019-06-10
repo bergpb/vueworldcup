@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Last from '@/components/Last'
 import Future from '@/components/Future'
 import Current from '@/components/Current'
+import About from '@/components/About'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/current',
       name: 'Current',
       component: Current
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
     }
   ]
 })

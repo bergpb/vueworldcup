@@ -3,7 +3,7 @@
     <v-layout wrap>
       <v-toolbar color="indigo darken-2" app>
         <v-toolbar-side-icon dark @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <v-toolbar-title class="white--text">Resultados da Copa</v-toolbar-title>
+        <v-toolbar-title class="white--text">FIFA Worldcup</v-toolbar-title>
         <v-spacer></v-spacer>
       </v-toolbar>
       <v-navigation-drawer
@@ -38,13 +38,6 @@
         <router-view/>
       </v-content>
     </v-layout>
-    <v-layout row wrap justify-center>
-      <v-footer fixed >
-        <v-flex xs12 py-1 text-xs-center>
-          <small>Feito com <v-icon color="red">favorite</v-icon> por @bergpb</small>
-        </v-flex>
-      </v-footer>
-    </v-layout>
   </v-app>
 </template>
 
@@ -55,14 +48,47 @@ export default {
       title: 'WorldCup 2019',
       fixed: true,
       drawer: null,
-        items: [
+        items: [  
           { title: 'Início', icon: 'home', path: '/' },
           { title: 'Em Andamento', icon: 'timer', path: '/current' },
           { title: 'Últimos Jogos', icon: 'keyboard_arrow_left', path: '/last' },
           { title: 'Jogos Futuros', icon: 'keyboard_arrow_right', path: '/future' },
+          { title: 'Sobre', icon: 'info', path: '/about' },
         ]
     }
   },
   name: 'App'
 }
 </script>
+
+<style>
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+hr {
+   display: block;
+   position: relative;
+   padding: 0;
+   margin: 10px auto;
+   height: 0;
+   width: 100%;
+   max-height: 0;
+   font-size: 2px;
+   line-height: 0;
+   clear: both;
+   border: none;
+   border-top: 1px solid #aaaaaa;
+   border-bottom: 1px solid #ffffff;
+}
+</style>

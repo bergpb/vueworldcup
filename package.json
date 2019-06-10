@@ -1,7 +1,7 @@
 {
-  "name": "vuetifyjsworldcup",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
+  "name": "vuetifyworldcup",
+  "version": "1.2.0",
+  "description": "A Vue project",
   "author": "bergpb <lindembergdepaulo@gmail.com>",
   "private": true,
   "scripts": {

@@ -18,34 +18,36 @@
     </v-container>
   </div>
   <div v-else>
-    <div v-if="worldcups.length > 0">
-        <v-container v-if="worldcups[0].status === 'Em Andamento'" grid-list-md text-xs-center>
-          <v-layout v-for="worldcup in worldcups" :key="worldcup.id" v-show="worldcup.status === 'Em Andamento'" row wrap>
-            <v-flex v-for="countries in worldcup.countries" xs6>
-              <h1>{{countries}}</h1>
-            </v-flex>
-            <v-flex v-for="flag in worldcup.flags" xs6>
-              <img :src=flag />
-            </v-flex>
-            <v-flex v-for="result in worldcup.results" xs6>
-              <h1>{{result}}</h1>
-            </v-flex>
-            <v-flex>
-              <h2>Tempo decorrido: {{worldcup.time}}</h2>
-              <p>Última atualização: {{worldcup.date_time}}</p>
-            </v-flex>
-            <hr>
-          </v-layout>
-        </v-container>
+    <div v-if="worldcups.length > 0 && worldcups[0].status === 'Em Andamento'">
+      <v-container v-if="worldcups[0].status === 'Em Andamento'" grid-list-md text-xs-center>
+        <v-layout v-for="worldcup in worldcups"
+                  :key="worldcup.id"
+                  v-show="worldcup.status === 'Em Andamento'" row wrap>
+          <v-flex v-for="countries in worldcup.countries" xs6>
+            <h1>{{countries}}</h1>
+          </v-flex>
+          <v-flex v-for="flag in worldcup.flags" xs6>
+            <img :src=flag />
+          </v-flex>
+          <v-flex v-for="result in worldcup.results" xs6>
+            <h1>{{result}}</h1>
+          </v-flex>
+          <v-flex>
+            <h2>Tempo decorrido: {{worldcup.time}}</h2>
+            <p>Última atualização: {{worldcup.date_time}}</p>
+          </v-flex>
+          <hr>
+        </v-layout>
+      </v-container>
     </div>
     <div v-else>
-        <v-container>
-          <v-layout>
-            <v-flex class="text-xs-center">
-              <h2>Ops, não há nenhuma partida em andamento.</h2>
-            </v-flex>
-          </v-layout>
-        </v-container>
+      <v-container>
+        <v-layout>
+          <v-flex class="text-xs-center">
+            <h2>Ops, não há nenhuma partida em andamento.</h2>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </div>
   </div>
 </template>
@@ -64,7 +66,6 @@
     methods: {
       firstUpdate: function() {
         fetch('https://worldcupresults.herokuapp.com/api/worldcup')
-        // fetch('http://localhost:5000/api/worldcup')
         .then(response => response.json())
         .then((res) => {
           this.worldcups = res.worldcup.reverse()
@@ -77,9 +78,7 @@
         .finally(() => this.loading = false)
       },
       continuousUpdate: function() {
-        console.log('updating...')
         fetch('https://worldcupresults.herokuapp.com/api/worldcup')
-        // fetch('http://localhost:5000/api/worldcup')
         .then(response => response.json())
         .then((res) => {
           this.worldcups = res.worldcup.reverse()
@@ -109,35 +108,3 @@
     },
   }
 </script>
-
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-hr {
-   display: block;
-   position: relative;
-   padding: 0;
-   margin: 10px auto;
-   height: 0;
-   width: 100%;
-   max-height: 0;
-   font-size: 2px;
-   line-height: 0;
-   clear: both;
-   border: none;
-   border-top: 1px solid #aaaaaa;
-   border-bottom: 1px solid #ffffff;
-}
-</style>
