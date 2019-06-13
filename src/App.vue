@@ -3,7 +3,7 @@
     <v-layout wrap>
       <v-toolbar color="indigo darken-2" app>
         <v-toolbar-side-icon dark @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <v-toolbar-title class="white--text">FIFA Worldcup</v-toolbar-title>
+        <v-toolbar-title class="white--text"> {{ title }}</v-toolbar-title>
         <v-spacer></v-spacer>
       </v-toolbar>
       <v-navigation-drawer
@@ -15,8 +15,11 @@
         >
         <v-list class="pa-1">
           <v-list-tile avatar>
+            <v-list-tile-avatar>
+              <img src="@/assets/icon.png">
+            </v-list-tile-avatar>
             <v-list-tile-content>
-              <v-list-tile-title>Copa do Mundo 2019</v-list-tile-title>
+              <v-list-tile-title>{{ title }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -45,7 +48,7 @@
 export default {
   data () {
     return {
-      title: 'WorldCup 2019',
+      title: 'FIFA Worldcup - 2019',
       fixed: true,
       drawer: null,
         items: [

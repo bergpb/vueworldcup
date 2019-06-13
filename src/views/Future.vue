@@ -3,7 +3,7 @@
     <v-container fill-height>
       <v-layout row wrap>
         <v-flex class="text-xs-center">
-          <v-progress-circular :size="70" :width="7" indeterminate color="teal"></v-progress-circular>
+          <v-progress-circular :size="70" :width="7" indeterminate color="#303F9F"></v-progress-circular>
         </v-flex>
       </v-layout>
     </v-container>
@@ -42,8 +42,18 @@
                     </div>
                 </v-flex>
                 <v-card-text style="">
-                   <v-icon>calendar_today</v-icon> {{worldcup.date | datalize}}<br>
-                   <v-icon>location_on</v-icon> {{worldcup.localization}}<br>
+                  <v-chip>
+                    <v-avatar class="teal">
+                      <v-icon>calendar_today</v-icon>
+                    </v-avatar>
+                    {{worldcup.date | datalize}}<br>
+                  </v-chip>
+                  <v-chip>
+                    <v-avatar class="orange">
+                      <v-icon>location_on</v-icon>
+                    </v-avatar>
+                    {{worldcup.localization}}
+                  </v-chip>
                 </v-card-text>
               </v-card-title>
             </v-card>
@@ -68,7 +78,7 @@
       datalize: function (date) {
         if (!date) return ''
         date = new Date(date)
-        return date.toLocaleTimeString() + ' - ' + date.toLocaleDateString()
+        return date.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'}) + ' - ' + date.toLocaleDateString()
       }
     },
     methods:{

@@ -2,11 +2,9 @@
   <v-container fill-height>
       <v-layout row wrap>
         <v-flex class="text-xs-center">
-          <img src="https://avatars1.githubusercontent.com/u/11005963"
-               lazy-src="https://avatars1.githubusercontent.com/u/11005963"
-               width="200px"
-               style="border-radius: 50%">
-          </img>
+          <img src="@/assets/bergpb.jpeg"
+               width="150px"
+               style="border-radius: 50%" />
           <p>
               <strong>Acompanhe os resultados da copa de uma forma simples e prática. Criado com Vue.js e Flask.</strong>
           </p>
