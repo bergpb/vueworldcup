@@ -22,7 +22,7 @@
       <v-container grid-list-md text-xs-center align-baseline>
         <v-layout v-for="worldcup in worldcups"
                   :key="worldcup.id"
-                  v-show="worldcup.status === 'Jogo Finalizado'" row wrap>
+                  v-show="worldcup.status === 'Em Andamento'" row wrap>
             <v-flex xs12 sm12 md12 lg6 xl6 offset-lg3 offset-xl3>
               <v-card class="default" color="white" height="100%">
                 <v-card-title primary-title>
