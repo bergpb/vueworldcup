@@ -1,29 +1,13 @@
-# vue-pwa
+# VueWorldCup
 
-## Project setup
-```
-npm install
-```
+#### Acompanhe os jogos da Copa do Mundo Feminida.
+#### Aplicação feita em Vue (Frontend) Flask(Backend).
+Feito com Vue(PWA) e Vuetify.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Desenvolvimento:
+  1.  ```npm install```
+  2.  ```npm run dev```
+  3.   [https://localhost:8080](https://localhost:8080)
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Produção:
+  1. ```npm run build```
