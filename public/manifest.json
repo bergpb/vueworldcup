@@ -1,6 +1,6 @@
 {
-  "name": "VueWorldcup",
-  "short_name": "VWC",
+  "name": "VueWorldCup",
+  "short_name": "VueWorldCup",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

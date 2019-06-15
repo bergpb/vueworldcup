@@ -43,7 +43,12 @@
                     <h1>{{result}}</h1>
                   </v-flex>
                   <v-flex>
-                    <h2>Tempo decorrido: {{worldcup.time}}</h2>
+                    <div v-if="worldcup.time == 'half-time'">
+                      <h2>Intervalo</h2>
+                    </div>
+                    <div v-else>
+                      <h2>Tempo decorrido: {{worldcup.time}}</h2>
+                    </div>
                     <p>Última atualização: {{worldcup.date_time}}</p>
                   </v-flex>
                 </v-card-title>
